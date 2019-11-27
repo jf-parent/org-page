@@ -162,7 +162,6 @@ perfectly manipulated by org-page."
 `op/repository-directory': <required>
 `op/site-domain': <required>
 `op/personal-disqus-shortname': <optional>
-`op/personal-duoshuo-shortname': <optional>
 `op/export-backend': [optional](default 'html)
 `op/repository-org-branch': [optional] (but customization recommended)
 `op/repository-html-branch': [optional] (but customization recommended)
@@ -339,7 +338,7 @@ When invoked without prefix argument then PATH defaults to
   (op/do-publication t nil path)
   (httpd-serve-directory path)
   ;;(browse-url (format "http://localhost:%d" httpd-port)
-  ))
+  )
 
 (provide 'org-page)
 

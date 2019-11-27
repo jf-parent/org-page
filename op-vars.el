@@ -61,11 +61,11 @@
 http:// or https://, http will be considered if not assigned."
   :group 'org-page :type 'string)
 
-(defcustom op/site-main-title "org-page"
+(defcustom op/site-main-title "Jean-François Parent's Blog"
   "The main title of entire site."
   :group 'org-page :type 'string)
 
-(defcustom op/site-sub-title "static site generator"
+(defcustom op/site-sub-title "Blog"
   "The subtitle of entire site."
   :group 'org-page :type 'string)
 
@@ -85,7 +85,7 @@ presented by `op/repository-directory'."
 points to the directory `themes' in org-page installation directory."
   :group 'org-page :type 'string)
 
-(defcustom op/theme 'mdo
+(defcustom op/theme 'pyrat
   "The theme used for page generation."
   :group 'org-page :type 'symbol)
 
@@ -94,20 +94,12 @@ points to the directory `themes' in org-page installation directory."
   :group 'org-page :type 'symbol)
 
 
-(defcustom op/personal-github-link "https://github.com/kelvinh/org-page"
+(defcustom op/personal-github-link "https://github.com/jf-parent/org-page"
   "The personal github link."
-  :group 'org-page :type 'string)
-
-(defcustom op/personal-avatar nil
-  "The link to an avatar image."
   :group 'org-page :type 'string)
 
 (defcustom op/personal-disqus-shortname nil
   "The personal disqus shortname."
-  :group 'org-page :type 'string)
-
-(defcustom op/personal-duoshuo-shortname nil
-  "The personal duoshuo shortname."
   :group 'org-page :type 'string)
 
 (defcustom op/personal-google-analytics-id nil
@@ -180,7 +172,6 @@ default value is `op/get-file-category'."
       ("about-uri" "/about/")
       ("site-main-title" op/site-main-title)
       ("site-sub-title" op/site-sub-title)
-      ("avatar" op/personal-avatar)
       ("github" op/personal-github-link)
       ("site-domain" (if (and op/site-domain
                               (string-match "\\`https?://\\(.*[a-zA-Z]\\)/?\\'"
@@ -189,11 +180,9 @@ default value is `op/get-file-category'."
                        op/site-domain))
       ("disqus-shortname" op/personal-disqus-shortname)
       ("disqus-comment" (if op/personal-disqus-shortname t nil))
-      ("duoshuo-shortname" op/personal-duoshuo-shortname)
-      ("duoshuo-comment" (if op/personal-duoshuo-shortname t nil))
       ("google-analytics-id" op/personal-google-analytics-id)
       ("google-analytics" (if op/personal-google-analytics-id t nil))
-      ("creator-info" org-html-creator-string))
+      ("creator-info" "Jean-François Parent"))
   "Default template rendering parameters.")
 
 (defvar op/item-cache nil

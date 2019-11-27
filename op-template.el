@@ -118,13 +118,11 @@ render from a default hash table."
                                (op/get-file-category nil))
                               'string-lessp)))
                       ("github" op/personal-github-link)
-                      ("avatar" op/personal-avatar)
                       ("site-domain" (if (string-match
                                           "\\`https?://\\(.*[a-zA-Z]\\)/?\\'"
                                           op/site-domain)
                                          (match-string 1 op/site-domain)
-                                       op/site-domain)))
-                  (if op/organization (ht ("authors-li" t)) (ht ("avatar" op/personal-avatar))))))))
+                                       op/site-domain))))))))
 
 (defun op/render-content (&optional template param-table)
   "Render the content on each page. TEMPLATE is the template name for rendering,
@@ -209,9 +207,6 @@ similar to `op/render-header'. `op/highlight-render' is `js' or `htmlize'."
              ("disqus-comment" (and (boundp 'op/personal-disqus-shortname)
                                     op/personal-disqus-shortname))
              ("disqus-shortname" op/personal-disqus-shortname)
-             ("duoshuo-comment" (and (boundp 'op/personal-duoshuo-shortname)
-                                     op/personal-duoshuo-shortname))
-             ("duoshuo-shortname" op/personal-duoshuo-shortname)
              ("google-analytics" (and (boundp 'op/personal-google-analytics-id)
                                       op/personal-google-analytics-id))
              ("google-analytics-id" op/personal-google-analytics-id)
@@ -235,8 +230,6 @@ customization to relevant variables."
                         op/site-domain))
        ("disqus-shortname" op/personal-disqus-shortname)
        ("disqus-comment" (if op/personal-disqus-shortname t nil))
-       ("duoshuo-shortname" op/personal-duoshuo-shortname)
-       ("duoshuo-comment" (if op/personal-duoshuo-shortname t nil))
        ("google-analytics-id" op/personal-google-analytics-id)
        ("google-analytics" (if op/personal-google-analytics-id t nil))))
   op/default-template-parameters)
