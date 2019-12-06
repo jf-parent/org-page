@@ -77,8 +77,8 @@ then the branch `op/repository-html-branch' will be pushed to remote repo."
   (interactive
    (let* ((f (y-or-n-p "Publish all org files? "))
           (b (unless f (read-string "Base git commit: " "HEAD~1")))
-          (p (when (y-or-n-p
-                    "Publish to a directory? (to original repo if not) ")
+          (p (when (not (y-or-n-p
+                         "Publish to a original repo? (to directory if not) "))
                (read-directory-name "Publication directory: ")))
           (a (when (not p)
                (y-or-n-p "Auto commit to repo? ")))
@@ -137,8 +137,9 @@ files, committed by org-page.")
                                   op/repository-html-branch)))))
       (op/git-change-branch op/repository-directory orig-branch))
     (if to-repo
-        (message "Publication finished: on branch '%s' of repository '%s'."
-                 op/repository-html-branch op/repository-directory)
+        (progn
+          (message "Publication finished: on branch '%s' of repository '%s'."
+                   op/repository-html-branch op/repository-directory))
       (message "Publication finished, output directory: %s." pub-base-dir))))
 
 (defun op/new-repository (repo-dir)
