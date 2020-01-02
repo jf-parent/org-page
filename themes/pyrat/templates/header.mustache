@@ -1,7 +1,6 @@
 <head>
   <title>{{page-title}}</title>
   <meta charset="utf-8" />
-  <link rel="shortcut icon" href="/media/images/penrose_rhombus_tiling.ico" />
   <meta name="author" content="{{author}}" />
   {{#description}}
     <meta name="description" content="{{description}}" />
@@ -9,8 +8,6 @@
   {{#keywords}}
     <meta name="keywords" content="{{keywords}}" />
   {{/keywords}}
-  <link rel="stylesheet" href="/media/css/style.css">
-  <link href="/media/fontawesome-free-5.11.2-web/css/all.css" rel="stylesheet">
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154154057-1"></script>
   <script>
@@ -20,4 +17,25 @@
 
    gtag('config', 'UA-154154057-1');
   </script>
+  <script async src="http://code.jquery.com/jquery-latest.min.js" async></script>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
+  <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script async src="/media/js/main.js"></script>
+  <script async src="/media/highlight/highlight.pack.js"></script>
+  <script>
+   hljs.initHighlightingOnLoad();
+   document.querySelectorAll('pre.src').forEach((block) => {
+     hljs.highlightBlock(block);
+   });
+  </script>
+  <link rel="shortcut icon" href="/media/images/penrose_rhombus_tiling.ico" />
+  <link rel="stylesheet" href="/media/css/style.css">
+  <link rel="stylesheet" href="/media/fontawesome-free-5.11.2-web/css/all.css">
+  <link rel="stylesheet" href="/media/highlight/styles/railscasts.css">
+  <style type="text/css">
+   /* Mathjax */
+   .MathJax_Display {
+     background: white !important;
+   }
+  </style>
 </head>
